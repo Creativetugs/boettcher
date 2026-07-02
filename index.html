@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boettcher Supply — Electrical · Plumbing · Outdoor Power | Since 1937</title>
+  <meta name="description" content="Boettcher Supply, Inc. — Employee-owned wholesale distributor of electrical, plumbing and outdoor power equipment in Beloit, Kansas. Serving contractors and businesses since 1937." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Announcement ticker -->
+  <div class="ticker" aria-label="Announcements">
+    <div class="ticker__track">
+      <span>Text us fast: <strong>785-738-5781</strong></span>
+      <span>We're Hiring — see Job Opportunities</span>
+      <span>Come see our Milwaukee "Store In a Store"</span>
+      <span>Save on your electric bill — switch fluorescent tubes to LED</span>
+      <span>Gift certificates available</span>
+      <!-- duplicate for seamless loop -->
+      <span>Text us fast: <strong>785-738-5781</strong></span>
+      <span>We're Hiring — see Job Opportunities</span>
+      <span>Come see our Milwaukee "Store In a Store"</span>
+      <span>Save on your electric bill — switch fluorescent tubes to LED</span>
+      <span>Gift certificates available</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="Boettcher Supply home">
+        <img src="logo.png" alt="Boettcher Supply, Inc." class="brand__logo" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#departments">Departments</a>
+        <a href="#finder">Product Finder</a>
+        <a href="#brands">Brands</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="phone" href="tel:18006575770">
+          <span class="phone__label">Order line</span>
+          <span class="phone__num">1-800-657-5770</span>
+        </a>
+        <button class="btn btn--ghost cart" id="cartBtn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 18Zm10 0a2 2 0 1 0 .001 4.001A2 2 0 0 0 17 18ZM6.2 4l.94 2H21l-3 8H8.5L6 4H2V2h5.2ZM8.9 12h7.1l1.5-4H7.4l1.5 4Z"/></svg>
+          <span id="cartCount">0</span>
+        </button>
+        <a class="btn btn--primary" href="#login">Account Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <a href="#departments">Departments</a>
+      <a href="#finder">Product Finder</a>
+      <a href="#brands">Brands</a>
+      <a href="#how">How It Works</a>
+      <a href="#about">About</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact</a>
+      <a href="#login" class="btn btn--primary">Account Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Employee-owned · Serving contractors since 1937</span>
+        <h1>The parts you need,<br><span class="accent">in stock and out the door.</span></h1>
+        <p class="lead">
+          Wholesale electrical, plumbing and outdoor power equipment — backed by 80+ years
+          of experience and people who actually know the trade. Find your part in seconds
+          with our interactive Product Finder.
+        </p>
+        <div class="hero__cta">
+          <a href="#finder" class="btn btn--primary btn--lg">Find a Product</a>
+          <a href="#departments" class="btn btn--outline btn--lg">Shop Departments</a>
+        </div>
+        <ul class="hero__trust">
+          <li><strong>80+</strong><span>Years in business</span></li>
+          <li><strong>100%</strong><span>Employee-owned</span></li>
+          <li><strong>3</strong><span>Specialty departments</span></li>
+          <li><strong>Same-day</strong><span>Local delivery</span></li>
+        </ul>
+      </div>
+
+      <!-- Product Finder card lives in hero for maximum impact -->
+      <div class="finder-card" id="finder">
+        <div class="finder-card__head">
+          <h2>Product Finder</h2>
+          <p>Tell us what you're working on — we'll point you to the right aisle.</p>
+        </div>
+
+        <form class="finder" id="finderForm" autocomplete="off">
+          <label class="field">
+            <span>Department</span>
+            <select id="deptSelect">
+              <option value="">Select a department…</option>
+              <option value="electrical">Electrical</option>
+              <option value="plumbing">Plumbing</option>
+              <option value="outdoor">Outdoor Power &amp; Small Engine</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Category</span>
+            <select id="catSelect" disabled>
+              <option value="">Choose a department first…</option>
+            </select>
+          </label>
+
+          <label class="field field--search">
+            <span>Or search a part</span>
+            <input type="search" id="searchInput" placeholder="e.g. SharkBite, LED tube, chainsaw chain…" />
+          </label>
+        </form>
+
+        <div class="finder-results" id="finderResults" aria-live="polite">
+          <div class="finder-empty">
+            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 5 1.49-1.5-5-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg>
+            <p>Pick a department or search to see matching products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login callout -->
+  <section class="login-strip" id="login">
+    <div class="container login-strip__inner">
+      <div>
+        <h3>See your pricing & live stock</h3>
+        <p>Account holders unlock member pricing and real-time inventory. New customer? Opening an account takes one call.</p>
+      </div>
+      <form class="login-mini" onsubmit="return false;">
+        <input type="email" placeholder="Email" aria-label="Email" />
+        <input type="password" placeholder="Password" aria-label="Password" />
+        <button class="btn btn--primary" type="submit">Log in</button>
+        <a class="login-mini__reg" href="tel:18006575770">Register — call 1-800-657-5770</a>
+      </form>
+    </div>
+  </section>
+
+  <!-- Departments -->
+  <section class="section" id="departments">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow eyebrow--dark">What we stock</span>
+        <h2>Three departments. One trusted supplier.</h2>
+        <p>Everything a contractor, manufacturer or business needs — under one roof, backed by people who know their stuff.</p>
+      </div>
+
+      <div class="dept-grid">
+        <article class="dept-card dept-card--electrical">
+          <div class="dept-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+          </div>
+          <h3>Electrical</h3>
+          <p>Wire &amp; cable, conduit, breakers, panels and energy-saving LED lighting upgrades.</p>
+          <ul>
+            <li>LED tube retrofits</li>
+            <li>Wire, cable &amp; conduit</li>
+            <li>Breakers &amp; panels</li>
+            <li>Milwaukee power tools</li>
+          </ul>
+          <a href="#finder" class="dept-card__link" data-dept="electrical">Explore Electrical →</a>
+        </article>
+
+        <article class="dept-card dept-card--plumbing">
+          <div class="dept-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M20 4h-6v2h2v4h-4V6h2V4H8v2h2v4H6a2 2 0 0 0-2 2v8h2v-6h12v6h2v-8a2 2 0 0 0-2-2h-4V6h2V4Z"/></svg>
+          </div>
+          <h3>Plumbing</h3>
+          <p>Fittings, faucets, water heaters and specialty items we keep on the shelf.</p>
+          <ul>
+            <li>SharkBite fittings</li>
+            <li>Peerless faucets</li>
+            <li>Bradford White water heaters</li>
+            <li>InSinkErator disposals</li>
+          </ul>
+          <a href="#finder" class="dept-card__link" data-dept="plumbing">Explore Plumbing →</a>
+        </article>
+
+        <article class="dept-card dept-card--outdoor">
+          <div class="dept-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a3 3 0 0 0-3 3c0 .35.06.69.18 1H4v2h5.18A3 3 0 0 0 12 11a3 3 0 0 0 2.82-2H20V7h-5.18c.12-.31.18-.65.18-1a3 3 0 0 0-3-3Zm-1 11h2v9h-2Z"/></svg>
+          </div>
+          <h3>Outdoor Power &amp; Small Engine</h3>
+          <p>Blowers, trimmers, chainsaws and the parts to keep them running.</p>
+          <ul>
+            <li>Echo blowers &amp; trimmers</li>
+            <li>Chainsaws &amp; chains</li>
+            <li>Mower blades &amp; bar oil</li>
+            <li>Seasonal Saturday hours</li>
+          </ul>
+          <a href="#finder" class="dept-card__link" data-dept="outdoor">Explore Outdoor →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="section section--muted" id="brands">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow eyebrow--dark">Lines we carry</span>
+        <h2>Brands the trade trusts</h2>
+        <p>We stand behind every product line we sell.</p>
+      </div>
+      <div class="brand-strip">
+        <span>Milwaukee</span>
+        <span>Echo</span>
+        <span>SharkBite</span>
+        <span>Peerless</span>
+        <span>Bradford White</span>
+        <span>InSinkErator</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow eyebrow--dark">Why Boettcher</span>
+        <h2>Honesty, commitment &amp; quality</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Employee-owned</h3>
+          <p>100% employee-owned — everyone here has a stake in your satisfaction, big order or small.</p>
+        </div>
+        <div class="feature">
+          <h3>Deep in-stock inventory</h3>
+          <p>Specialty items other suppliers make you wait for are on our shelves and ready to go.</p>
+        </div>
+        <div class="feature">
+          <h3>People who know the trade</h3>
+          <p>Friendly, courteous salespeople who help you get the right part the first time.</p>
+        </div>
+        <div class="feature">
+          <h3>Fast local delivery</h3>
+          <p>Competitive prices and quick delivery — the sale doesn't end with an invoice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section--muted" id="how">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow eyebrow--dark">How it works</span>
+        <h2>Order in four simple steps</h2>
+        <p>From finding the right part to getting it in your hands — here's how easy it is to work with us.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num">1</span>
+          <h3>Create your account</h3>
+          <p>Open a trade account to unlock member pricing and live inventory. New customer? One quick call sets you up.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">2</span>
+          <h3>Find your parts</h3>
+          <p>Use the Product Finder or search by name and part number across electrical, plumbing and outdoor power.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">3</span>
+          <h3>See price &amp; stock</h3>
+          <p>Log in to view your pricing and real-time availability, then add items straight to your quote or cart.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">4</span>
+          <h3>Pick up or delivery</h3>
+          <p>Grab it at either Beloit location or take advantage of our fast local delivery. The sale doesn't end at the invoice.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- About / history -->
+  <section class="section section--dark" id="about">
+    <div class="container about__inner">
+      <div class="about__copy">
+        <span class="eyebrow">Our story</span>
+        <h2>It started with a Model&nbsp;T full of cantaloupe.</h2>
+        <p>
+          In 1937, 25-year-old Harold Boettcher filled his Model T with cantaloupe, sold it
+          along the road to finance the trip, and moved his family to Beloit, Kansas. That
+          willingness to work hard and make the most of every opportunity still runs the place.
+        </p>
+        <p>
+          More than 80 years later, Boettcher Supply remains a family- and employee-owned
+          business serving contractors, manufacturers and businesses across the region —
+          delivering the quality and service you expect from our experience.
+        </p>
+        <a href="#contact" class="btn btn--primary">Read more &amp; get in touch</a>
+      </div>
+      <div class="timeline">
+        <div class="timeline__item"><strong>1937</strong><span>Harold &amp; Zelma Boettcher move to Beloit and open shop.</span></div>
+        <div class="timeline__item"><strong>80+ yrs</strong><span>Trusted across electrical, plumbing &amp; outdoor power.</span></div>
+        <div class="timeline__item"><strong>Today</strong><span>100% employee-owned, serving the Beloit community and beyond.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section testimonial-section">
+    <div class="container">
+      <blockquote class="testimonial">
+        <p>"Boettcher Supply has a great product selection, competitive prices and fast delivery.
+        Their salespeople are friendly, courteous and always helpful — with Boettcher Supply,
+        the sale doesn't end with an invoice."</p>
+        <cite>— Longtime contractor customer</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="section section--muted" id="locations">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow eyebrow--dark">Find us</span>
+        <h2>Two Beloit locations</h2>
+        <p>Open Monday–Friday, 8 AM – 5 PM. Prefer to text? Reach us at 785-738-5781.</p>
+      </div>
+      <div class="loc-grid">
+        <article class="loc-card">
+          <h3>Electrical / Plumbing / Telecom</h3>
+          <address>
+            118 West Court Street<br>
+            Beloit, Kansas 67420
+          </address>
+          <dl>
+            <div><dt>Phone</dt><dd><a href="tel:17857385781">785-738-5781</a> · <a href="tel:18006575770">800-657-5770</a></dd></div>
+            <div><dt>Fax</dt><dd>785-738-6513</dd></div>
+            <div><dt>Hours</dt><dd>Mon–Fri: 8 AM – 5 PM</dd></div>
+          </dl>
+          <a class="loc-card__dir" href="https://maps.google.com/?q=118+West+Court+Street+Beloit+Kansas+67420" target="_blank" rel="noopener">Get directions →</a>
+        </article>
+
+        <article class="loc-card">
+          <h3>Outdoor Power Eqpt / Small Engine</h3>
+          <address>
+            113 West Court Street<br>
+            Beloit, Kansas 67420
+          </address>
+          <dl>
+            <div><dt>Phone</dt><dd><a href="tel:17857382090">785-738-2090</a> · <a href="tel:18005692700">800-569-2700</a></dd></div>
+            <div><dt>Fax</dt><dd>785-738-4005</dd></div>
+            <div><dt>Hours</dt><dd>Mon–Fri: 8 AM – 5 PM · Sat: 8–11 AM (seasonal)</dd></div>
+          </dl>
+          <a class="loc-card__dir" href="https://maps.google.com/?q=113+West+Court+Street+Beloit+Kansas+67420" target="_blank" rel="noopener">Get directions →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="cta-band" id="contact">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>Need a quote or want to open an account?</h2>
+        <p>Call, text, or stop by — we'll get you the right parts fast.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--light btn--lg" href="tel:18006575770">Call 1-800-657-5770</a>
+        <a class="btn btn--outline-light btn--lg" href="sms:17857385781">Text 785-738-5781</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="logo.png" alt="Boettcher Supply, Inc." class="footer__logo" />
+        <p>Employee-owned · Serving the trade since 1937.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#departments">Departments</a>
+        <a href="#finder">Product Finder</a>
+        <a href="#brands">Brands</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#locations">Locations</a>
+        <a href="#login">Account Login</a>
+      </nav>
+      <div class="footer__contact">
+        <p>P.O. Box 486, Beloit, Kansas 67420-0486</p>
+        <p>Order: <a href="tel:18006575770">1-800-657-5770</a> · Text: <a href="sms:17857385781">785-738-5781</a></p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <div class="container">
+        <p>© <span id="year"></span> Boettcher Supply, Inc. All rights reserved.</p>
+        <p class="footer__note">Demo concept design — not the live site.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast for cart demo -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
